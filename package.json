@@ -1,0 +1,26 @@
+{
+  "name": "birdie-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/styled": "^11.0.0",
+    "@n8tb1t/use-scroll-position": "^2.0.3",
+    "@zeit/next-css": "^1.0.1",
+    "bootstrap": "^4.5.3",
+    "dotenv": "^8.2.0",
+    "emotion-theming": "^11.0.0",
+    "isomorphic-unfetch": "^3.1.0",
+    "next": "10.0.3",
+    "react": "17.0.1",
+    "react-bootstrap": "^1.4.0",
+    "react-cool-dimensions": "^1.1.11",
+    "react-dom": "17.0.1",
+    "react-multi-carousel": "^2.6.1"
+  }
+}
