@@ -1,7 +1,7 @@
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
-/******/ 	var installedModules = require('../ssr-module-cache.js');
+/******/ 	var installedModules = require('../../ssr-module-cache.js');
 /******/
 /******/ 	// The require function
 /******/ 	function __webpack_require__(moduleId) {
@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 5);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -166,13 +166,6 @@ const requestIdleCallback = typeof self !== 'undefined' && self.requestIdleCallb
 
 var _default = requestIdleCallback;
 exports.default = _default;
-
-/***/ }),
-
-/***/ "0bYB":
-/***/ (function(module, exports) {
-
-module.exports = require("isomorphic-unfetch");
 
 /***/ }),
 
@@ -293,10 +286,17 @@ function assign(target, ...searchParamsList) {
 
 /***/ }),
 
-/***/ 4:
+/***/ "4Q3z":
+/***/ (function(module, exports) {
+
+module.exports = require("next/router");
+
+/***/ }),
+
+/***/ 5:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("RNiq");
+module.exports = __webpack_require__("U1TB");
 
 
 /***/ }),
@@ -476,6 +476,20 @@ module.exports = require("react-multi-carousel");
 /***/ (function(module, exports) {
 
 module.exports = require("react/jsx-runtime");
+
+/***/ }),
+
+/***/ "HJQg":
+/***/ (function(module, exports) {
+
+module.exports = require("styled-jsx/style");
+
+/***/ }),
+
+/***/ "Mgi6":
+/***/ (function(module, exports) {
+
+module.exports = require("@n8tb1t/use-scroll-position");
 
 /***/ }),
 
@@ -746,7 +760,28 @@ module.exports = require("next/dist/next-server/lib/router-context.js");
 
 /***/ }),
 
-/***/ "RNiq":
+/***/ "S3md":
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+/***/ }),
+
+/***/ "TqRt":
+/***/ (function(module, exports) {
+
+function _interopRequireDefault(obj) {
+  return obj && obj.__esModule ? obj : {
+    "default": obj
+  };
+}
+
+module.exports = _interopRequireDefault;
+
+/***/ }),
+
+/***/ "U1TB":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -758,6 +793,13 @@ __webpack_require__.d(__webpack_exports__, "getServerSideProps", function() { re
 
 // EXTERNAL MODULE: external "react/jsx-runtime"
 var jsx_runtime_ = __webpack_require__("F5FC");
+
+// EXTERNAL MODULE: external "styled-jsx/style"
+var style_ = __webpack_require__("HJQg");
+var style_default = /*#__PURE__*/__webpack_require__.n(style_);
+
+// EXTERNAL MODULE: external "next/router"
+var router_ = __webpack_require__("4Q3z");
 
 // EXTERNAL MODULE: external "react-bootstrap/Container"
 var Container_ = __webpack_require__("vDuQ");
@@ -771,83 +813,144 @@ var Row_default = /*#__PURE__*/__webpack_require__.n(Row_);
 var Col_ = __webpack_require__("tfHl");
 var Col_default = /*#__PURE__*/__webpack_require__.n(Col_);
 
-// EXTERNAL MODULE: ./node_modules/next/link.js
-var next_link = __webpack_require__("YFqc");
-var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+// EXTERNAL MODULE: external "react"
+var external_react_ = __webpack_require__("cDcd");
 
-// CONCATENATED MODULE: ./components/PostListing.js
+// EXTERNAL MODULE: external "react-cool-dimensions"
+var external_react_cool_dimensions_ = __webpack_require__("lOje");
+var external_react_cool_dimensions_default = /*#__PURE__*/__webpack_require__.n(external_react_cool_dimensions_);
 
-
-
-
-
+// CONCATENATED MODULE: ./components/ImageGallery.js
 
 
-const PostListing = ({
+
+
+
+
+
+
+const ImageGallery = ({
   post,
-  parent_destination,
-  orientation
+  windowWidth,
+  setImagesHeight
 }) => {
-  var _post$Destination, _post$Destination2;
+  const {
+    ref,
+    width,
+    height,
+    entry,
+    unobserve,
+    observe
+  } = external_react_cool_dimensions_default()({
+    onResize: ({
+      width,
+      height,
+      entry,
+      unobserve,
+      observe
+    }) => {
+      // Triggered whenever the size of the target is changed
+      setImagesHeight(height);
+    }
+  });
+  return /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+    ref: ref,
+    className: "post-images",
+    sm: "7",
+    med: "7",
+    lg: "7",
+    children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+      className: "image-gallery",
+      sm: "12",
+      med: "12",
+      lg: "12",
+      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
+        fluid: true,
+        children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Row_default.a, {
+          children: [windowWidth > 576 ? /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+            className: "gallery-image",
+            sm: "12",
+            md: "12",
+            lg: "12",
+            children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+              src: post.Heroes.Landscape.formats.medium.url
+            })
+          }) : '', post.Images.Image.map(image => {
+            if (image.Orientation == 'Portrait') {
+              var _image$Image;
 
-  let widths;
-  let hero;
+              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+                className: "gallery-image",
+                sm: "6",
+                md: "6",
+                lg: "6",
+                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                  src: (_image$Image = image.Image) === null || _image$Image === void 0 ? void 0 : _image$Image.formats.medium.url
+                })
+              });
+            } else {
+              var _image$Image2;
 
-  if (orientation == 'Portrait') {
-    widths = {
-      sm: 6,
-      md: 4,
-      lg: 3
-    };
-    hero = post.Heroes.Portrait.formats.medium.url;
-  } else {
-    widths = {
-      sm: 12,
-      md: 8,
-      lg: 6
-    };
-    hero = post.Heroes.Landscape.formats.medium.url;
-  }
-
-  return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Col_default.a, {
-    className: "post-listing",
-    sm: widths.sm,
-    md: widths.md,
-    lg: widths.lg,
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-      href: 'post/' + post.Slug,
-      as: `post/${post.Slug}`,
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: hero,
-          width: "100%"
+              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+                className: "gallery-image",
+                sm: "12",
+                md: "12",
+                lg: "12",
+                children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                  src: (_image$Image2 = image.Image) === null || _image$Image2 === void 0 ? void 0 : _image$Image2.formats.medium.url
+                })
+              });
+            }
+          })]
         })
       })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])("p", {
-      className: "post-tag",
-      children: [post.Type == 'Journal' ? 'Photo Journal' : 'Itinerary', " // ", parent_destination ? ((_post$Destination = post.Destination) === null || _post$Destination === void 0 ? void 0 : _post$Destination.Name) + ', ' + (parent_destination === null || parent_destination === void 0 ? void 0 : parent_destination.Name) : (_post$Destination2 = post.Destination) === null || _post$Destination2 === void 0 ? void 0 : _post$Destination2.Name]
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
-      href: 'post/' + post.Slug,
-      as: `post/${post.Slug}`,
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("a", {
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-          className: "post-title",
-          children: post.Title
-        })
-      })
-    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
-      className: "post-blurb",
-      children: post.Tagline
-    })]
+    })
   });
 };
 
-/* harmony default export */ var components_PostListing = (PostListing);
+/* harmony default export */ var components_ImageGallery = (ImageGallery);
+// EXTERNAL MODULE: external "@n8tb1t/use-scroll-position"
+var use_scroll_position_ = __webpack_require__("Mgi6");
+
+// CONCATENATED MODULE: ./functions/useWindowDimensions.js
+
+
+function getWindowDimensions() {
+  if (false) {} else {
+    return {
+      x: 0,
+      y: 0
+    };
+  }
+}
+
+function useWindowDimensions() {
+  const {
+    0: windowDimensions,
+    1: setWindowDimensions
+  } = Object(external_react_["useState"])(getWindowDimensions());
+  Object(external_react_["useEffect"])(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+  return windowDimensions;
+}
+// EXTERNAL MODULE: ./components/Footer.js
+var Footer = __webpack_require__("8lYe");
+
 // EXTERNAL MODULE: external "react-multi-carousel"
 var external_react_multi_carousel_ = __webpack_require__("99J/");
 var external_react_multi_carousel_default = /*#__PURE__*/__webpack_require__.n(external_react_multi_carousel_);
 
-// CONCATENATED MODULE: ./components/ItemCarousel.js
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__("YFqc");
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
+
+// CONCATENATED MODULE: ./components/PostCarousel.js
 
 
 
@@ -855,6 +958,7 @@ var external_react_multi_carousel_default = /*#__PURE__*/__webpack_require__.n(e
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
+
 
 
 
@@ -898,14 +1002,17 @@ const CustomLeftArrow = (_ref2) => {
   });
 };
 
-const ItemCarousel = () => {
+const PostCarousel = ({
+  post_type,
+  posts
+}) => {
   const responsive = {
     desktop: {
       breakpoint: {
         max: 3000,
         min: 1024
       },
-      items: 6,
+      items: 4,
       slidesToSlide: 3 // optional, default to 1.
 
     },
@@ -914,7 +1021,7 @@ const ItemCarousel = () => {
         max: 1024,
         min: 464
       },
-      items: 4,
+      items: 3,
       slidesToSlide: 2 // optional, default to 1.
 
     },
@@ -929,15 +1036,15 @@ const ItemCarousel = () => {
     }
   };
   return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(jsx_runtime_["Fragment"], {
-    children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
+    children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])("h3", {
       className: "carousel-title",
-      children: "birdie essentials"
+      children: ["more ", post_type]
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("h3", {
       className: "carousel-shop",
-      children: "shop all"
+      children: "see all"
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
       className: "clear"
-    }), /*#__PURE__*/Object(jsx_runtime_["jsxs"])(external_react_multi_carousel_default.a, {
+    }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(external_react_multi_carousel_default.a, {
       swipeable: false,
       draggable: false,
       responsive: responsive,
@@ -954,50 +1061,32 @@ const ItemCarousel = () => {
       itemClass: "carousel-item-padding-40-px",
       customRightArrow: /*#__PURE__*/Object(jsx_runtime_["jsx"])(CustomRightArrow, {}),
       customLeftArrow: /*#__PURE__*/Object(jsx_runtime_["jsx"])(CustomLeftArrow, {}),
-      children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
-        className: "carousel-slide",
-        children: /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
-          src: "https://res.cloudinary.com/phonetag/image/upload/v1607655714/post_5_d642867284.png"
-        })
-      })]
+      children: posts.map(post => {
+        return /*#__PURE__*/Object(jsx_runtime_["jsxs"])("div", {
+          className: "carousel-slide",
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(link_default.a, {
+            href: '/../post/' + post.Slug,
+            as: `/../post/${post.Slug}`,
+            children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])("a", {
+              children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+                src: post.Heroes.Portrait.formats.small.url
+              }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
+                className: "post-title",
+                children: post.Title
+              })]
+            })
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
+            className: "post-blurb",
+            children: post.Tagline
+          })]
+        });
+      })
     })]
   });
 };
 
-/* harmony default export */ var components_ItemCarousel = (ItemCarousel);
-// EXTERNAL MODULE: ./components/Footer.js
-var Footer = __webpack_require__("8lYe");
-
-// EXTERNAL MODULE: external "isomorphic-unfetch"
-var external_isomorphic_unfetch_ = __webpack_require__("0bYB");
-var external_isomorphic_unfetch_default = /*#__PURE__*/__webpack_require__.n(external_isomorphic_unfetch_);
-
-// CONCATENATED MODULE: ./pages/index.js
+/* harmony default export */ var components_PostCarousel = (PostCarousel);
+// CONCATENATED MODULE: ./pages/post/[slug].js
 
 
 
@@ -1009,163 +1098,176 @@ var external_isomorphic_unfetch_default = /*#__PURE__*/__webpack_require__.n(ext
 
 
 
-const Home = ({
-  posts,
-  destinations
+
+
+
+
+
+const Post = ({
+  post,
+  carousel_data
 }) => {
-  let postCounter = 0;
+  const router = Object(router_["useRouter"])();
+  const {
+    slug
+  } = router.query;
+  const {
+    0: imagesHeight,
+    1: setImagesHeight
+  } = Object(external_react_["useState"])(null);
+  const {
+    0: bodyHeight,
+    1: setBodyHeight
+  } = Object(external_react_["useState"])(null);
+  const {
+    0: bodyPosition,
+    1: setBodyPosition
+  } = Object(external_react_["useState"])('fixed !important');
+  const {
+    0: bodyTop,
+    1: setBodyTop
+  } = Object(external_react_["useState"])(null);
+  const {
+    0: textBodyTop,
+    1: setTextBodyTop
+  } = Object(external_react_["useState"])({
+    top: 100
+  });
+  const {
+    ref,
+    width,
+    height,
+    entry,
+    unobserve,
+    observe
+  } = external_react_cool_dimensions_default()({
+    onResize: ({
+      width,
+      height,
+      entry,
+      unobserve,
+      observe
+    }) => {// Triggered whenever the size of the target is changed
+    }
+  });
+  const {
+    windowHeight,
+    windowWidth
+  } = useWindowDimensions();
+  Object(external_react_["useEffect"])(() => {
+    if (windowWidth < 576) {
+      setBodyPosition('static !important');
+    } else {
+      setBodyPosition('fixed !important');
+    }
+  }, [windowWidth]);
+
+  function getBodyTop() {
+    if (windowWidth < 576) {
+      return {
+        top: 0,
+        paddingRight: 15
+      };
+    } else {
+      if (-(textBodyTop + 30) + windowHeight > height) {
+        if (-(textBodyTop + 30) + windowHeight > imagesHeight) {
+          return {
+            top: -(height - (imagesHeight + textBodyTop)),
+            paddingRight: 50
+          };
+        } else {
+          return {
+            top: -(height - windowHeight),
+            paddingRight: 50
+          };
+        }
+      } else {
+        return {
+          top: textBodyTop + 30,
+          paddingRight: 50
+        };
+      }
+    }
+  }
+
+  Object(use_scroll_position_["useScrollPosition"])(({
+    prevPos,
+    currPos
+  }) => {
+    setTextBodyTop(currPos.y);
+  }, [textBodyTop]);
   return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(jsx_runtime_["Fragment"], {
     children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(Container_default.a, {
-      className: "posts-container",
+      className: "post-container",
       fluid: true,
-      children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(Row_default.a, {
-        children: posts.map(post => {
-          var _post$Destination;
-
-          let parent_destination = false;
-
-          if ((_post$Destination = post.Destination) === null || _post$Destination === void 0 ? void 0 : _post$Destination.parent_destination) {
-            parent_destination = destinations.filter(function id(destination) {
-              return destination.id == post.Destination.parent_destination;
-            })[0];
-          }
-
-          switch (postCounter) {
-            case 0:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Landscape'
-              });
-              break;
-
-            case 1:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 2:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 3:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 4:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 5:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsxs"])(jsx_runtime_["Fragment"], {
-                children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                  post: post,
-                  parent_destination: parent_destination,
-                  orientation: 'Landscape'
-                }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
-                  sm: "12",
-                  md: "12",
-                  lg: "12",
-                  className: "carousel-container",
-                  children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_ItemCarousel, {})
-                })]
-              });
-              break;
-
-            case 6:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 7:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Portrait'
-              });
-              break;
-
-            case 8:
-              postCounter = postCounter + 1;
-              return /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostListing, {
-                post: post,
-                parent_destination: parent_destination,
-                orientation: 'Landscape'
-              });
-              break;
-
-            default: // code block
-
-          }
-        })
+      children: /*#__PURE__*/Object(jsx_runtime_["jsxs"])(Row_default.a, {
+        children: [/*#__PURE__*/Object(jsx_runtime_["jsxs"])(Col_default.a, {
+          ref: ref,
+          className: "post-body",
+          style: getBodyTop(),
+          sm: "5",
+          med: "5",
+          lg: "5",
+          children: [/*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
+            className: style_default.a.dynamic([["1152529766", [bodyPosition]]]) + " " + "post-title",
+            children: post.Title
+          }), /*#__PURE__*/Object(jsx_runtime_["jsx"])("p", {
+            className: style_default.a.dynamic([["1152529766", [bodyPosition]]]) + " " + "post-blurb",
+            children: post.Tagline
+          }), windowWidth < 576 ? /*#__PURE__*/Object(jsx_runtime_["jsx"])("img", {
+            src: post.Heroes.Landscape.formats.small.url,
+            className: style_default.a.dynamic([["1152529766", [bodyPosition]]])
+          }) : '', /*#__PURE__*/Object(jsx_runtime_["jsx"])("div", {
+            dangerouslySetInnerHTML: {
+              __html: post.Body
+            },
+            className: style_default.a.dynamic([["1152529766", [bodyPosition]]]) + " " + "post-text"
+          })]
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(style_default.a, {
+          id: "1152529766",
+          dynamic: [bodyPosition],
+          children: [`.post-body{position:${bodyPosition};}`]
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+          sm: "5",
+          med: "5",
+          lg: "5"
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_ImageGallery, {
+          post: post,
+          windowWidth: windowWidth,
+          setImagesHeight: setImagesHeight
+        }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Col_default.a, {
+          sm: "12",
+          md: "12",
+          lg: "12",
+          className: "carousel-container",
+          children: /*#__PURE__*/Object(jsx_runtime_["jsx"])(components_PostCarousel, {
+            post_type: post.Type == 'Journal' ? 'photo journals' : 'itineraries',
+            posts: carousel_data
+          })
+        })]
       })
     }), /*#__PURE__*/Object(jsx_runtime_["jsx"])(Footer["a" /* default */], {})]
   });
 };
 
-async function getServerSideProps() {
+async function getServerSideProps(context) {
   const {
     API_URL
   } = process.env;
-  const res_1 = await external_isomorphic_unfetch_default()(`${API_URL}/posts`);
-  const post_data = await res_1.json();
-  const res_2 = await external_isomorphic_unfetch_default()(`${API_URL}/destinations`);
-  const destinations_data = await res_2.json();
+  const res = await fetch(`${API_URL}/posts?Slug=${context.params.slug}`);
+  const post_data = await res.json();
+  const carousel_res = await fetch(`${API_URL}/posts?Type=${post_data[0].Type}`);
+  const carousel_data = await carousel_res.json();
+  console.log("Carousel Data");
+  console.log(carousel_data);
   return {
     props: {
-      posts: post_data,
-      destinations: destinations_data
+      post: post_data[0],
+      carousel_data: carousel_data
     }
   };
 }
-/* harmony default export */ var pages = __webpack_exports__["default"] = (Home);
-
-/***/ }),
-
-/***/ "S3md":
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-/***/ }),
-
-/***/ "TqRt":
-/***/ (function(module, exports) {
-
-function _interopRequireDefault(obj) {
-  return obj && obj.__esModule ? obj : {
-    "default": obj
-  };
-}
-
-module.exports = _interopRequireDefault;
+/* harmony default export */ var _slug_ = __webpack_exports__["default"] = (Post);
 
 /***/ }),
 
@@ -2794,6 +2896,13 @@ function parseRelativeUrl(url, base) {
     href: href.slice(globalBase.origin.length)
   };
 }
+
+/***/ }),
+
+/***/ "lOje":
+/***/ (function(module, exports) {
+
+module.exports = require("react-cool-dimensions");
 
 /***/ }),
 
