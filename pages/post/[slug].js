@@ -82,10 +82,10 @@ const Post = ({ post, carousel_data, hero }) => {
             <p className="post-title">{post.Title}</p>
             <p className="post-blurb">{post.Tagline}</p>
             {
-              console.log("Hero: " + post.Heroes.Landscape.formats.small.url)
+              console.log("Hero: " + hero)
             }
             {
-              (windowWidth < 576) ? <GalleryImage image={post.Heroes.Landscape.formats.large.url} orientation={'Landscape'} caption={post.Heroes.Landscape.caption} /> : ''
+              (windowWidth < 576) ? <GalleryImage image={hero} orientation={'Landscape'} caption={post.Heroes.Landscape.caption} /> : ''
             }
             <div className="post-text" dangerouslySetInnerHTML={{__html:post.Body}}>
             </div>

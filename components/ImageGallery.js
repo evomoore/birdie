@@ -18,23 +18,25 @@ const ImageGallery = ({ post, windowWidth, setImagesHeight, hero }) => {
   let key_counter = 0;
 
   return (
-    <Col ref={ref} className="post-images" sm="8" med="8" lg="8">
-      <Col className="image-gallery" sm="12" med="12" lg="12">
-        <Container fluid>
-          <Row>
-            {(windowWidth > 576) ? <GalleryImage key={key_counter} image={hero} orientation={'Landscape'} caption={post.Heroes.Landscape?.caption} /> : ''}
-            {
-              post.Images.Image.map(image => {
-                key_counter++
-                return (
-                  <GalleryImage key={key_counter} image={image.Image.formats.medium.url} orientation={image.Orientation} caption={image.Caption} />
-                )
-              })
-            }
-          </Row>
-        </Container>
+    <>
+      <Col ref={ref} className="post-images" sm="8" med="8" lg="8">
+        <Col className="image-gallery" sm="12" med="12" lg="12">
+          <Container fluid>
+            <Row>
+              {<GalleryImage windowWidth={windowWidth} hero={true} key={key_counter} image={hero} orientation={'Landscape'} caption={post.Heroes.Landscape?.caption} />}
+              {
+                post.Images.Image.map(image => {
+                  key_counter++
+                  return (
+                    <GalleryImage key={key_counter} image={image.Image.formats.medium.url} orientation={image.Orientation} caption={image.Caption} />
+                  )
+                })
+              }
+            </Row>
+          </Container>
+        </Col>
       </Col>
-    </Col>
+    </>
   )
 }
 

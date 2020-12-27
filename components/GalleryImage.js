@@ -3,7 +3,7 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import React, { useState, useRef } from 'react'
 
-const GalleryImage = ({ image, orientation, caption }) => {
+const GalleryImage = ({ image, orientation, caption, hero, windowWidth }) => {
 
   const [ captionVisibility, setCaptionVisibility ] = useState('hidden');
 
@@ -17,7 +17,7 @@ const GalleryImage = ({ image, orientation, caption }) => {
   } else {
     return (
       <Col className="gallery-image" sm="12" md="12" lg="12" onMouseEnter={() => setCaptionVisibility('visible')} onMouseLeave={() => setCaptionVisibility('hidden')}>
-        <img src={image} />
+        <img  style={(hero && (windowWidth < 576)) ? { display: 'none' } : {}} src={image} />
         {caption ? <div className="image-caption" style={{ visibility: captionVisibility }}><p>{caption}</p></div> : ''}
       </Col>
     )
