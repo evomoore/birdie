@@ -13,37 +13,13 @@ function Header ({ destinations }) {
         <Nav className="mr-auto">
         </Nav>
         <Nav className="right-nav">
-          <NavDropdown title="destinations" id="nav-dropdown">
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/europe">
-                europe
-              </Nav.Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/united-states">
-                united states
-              </Nav.Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/mexico">
-                mexico
-              </Nav.Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/caribbean">
-                caribbean
-              </Nav.Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/asia">
-                asia
-              </Nav.Link>
-            </NavDropdown.Item>
-            <NavDropdown.Item>
-              <Nav.Link href="/destination/india">
-                india
-              </Nav.Link>
-            </NavDropdown.Item>
+          <NavDropdown title="destinations" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/destination/europe">europe</NavDropdown.Item>
+            <NavDropdown.Item href="/destination/united-states">united states</NavDropdown.Item>
+            <NavDropdown.Item href="/destination/mexico">mexico</NavDropdown.Item>
+            <NavDropdown.Item href="/destination/india">india</NavDropdown.Item>
+            <NavDropdown.Item href="/destination/asia">asia</NavDropdown.Item>
+            <NavDropdown.Item href="/destination/caribbean">caribbean</NavDropdown.Item>
           </NavDropdown>
           <Nav.Item>
             <Nav.Link href="/photo-journals">

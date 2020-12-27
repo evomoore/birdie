@@ -38,6 +38,8 @@ const PostCarousel = ({ post_type, posts }) => {
     }
   };
 
+  let key_counter = 0;
+
   return (
     <>
       <h3 className="carousel-title">more {post_type}</h3>
@@ -62,8 +64,9 @@ const PostCarousel = ({ post_type, posts }) => {
       >
       {
         posts.map(post => {
+          key_counter++
           return (
-            <div className="carousel-slide">
+            <div className="carousel-slide" key={key_counter}>
               <Link href={'/../post/' + post.Slug} as={`/../post/${post.Slug}`}>
                 <a>
                   <img src={post.Heroes.Portrait.formats.small.url} />

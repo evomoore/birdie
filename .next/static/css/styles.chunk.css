@@ -78,11 +78,11 @@ a:hover {
 .post-body {
   top: 100px;
   text-align: justify;
+  z-index: 1000;
 }
 
 .post-body img {
   width: 100%;
-  margin-top: 30px;
 }
 
 .post-text {
@@ -103,6 +103,21 @@ a:hover {
 
 .gallery-image img {
   width: 100%;
+}
+
+.image-caption {
+  position: relative;
+  margin-top: -50px;
+  height: 50px;
+  background-color: rgba(79, 79, 79, 0.8);
+  padding: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+.item-carousel-container {
+  padding-left: 50px !important;
+  padding-right: 50px !important;
 }
 
 .carousel-container {

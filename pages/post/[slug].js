@@ -9,8 +9,9 @@ import useDimensions from "react-cool-dimensions";
 import useWindowDimensions from '../../functions/useWindowDimensions'
 import Footer from '../../components/Footer'
 import PostCarousel from '../../components/PostCarousel'
+import GalleryImage from '../../components/GalleryImage'
 
-const Post = ({ post, carousel_data }) => {
+const Post = ({ post, carousel_data, hero }) => {
   const router = useRouter()
   const { slug } = router.query
   const [imagesHeight, setImagesHeight] = useState(null)
@@ -77,11 +78,14 @@ const Post = ({ post, carousel_data }) => {
     <>
       <Container className="post-container" fluid>
         <Row>
-          <Col ref={ref} className="post-body" style={getBodyTop()} sm="5" med="5" lg="5">
+          <Col ref={ref} className="post-body" style={getBodyTop()} sm="4" med="4" lg="4">
             <p className="post-title">{post.Title}</p>
             <p className="post-blurb">{post.Tagline}</p>
             {
-              (windowWidth < 576) ? <img src={post.Heroes.Landscape.formats.small.url} /> : ''
+              console.log("Hero: " + post.Heroes.Landscape.formats.small.url)
+            }
+            {
+              (windowWidth < 576) ? <GalleryImage image={post.Heroes.Landscape.formats.large.url} orientation={'Landscape'} caption={post.Heroes.Landscape.caption} /> : ''
             }
             <div className="post-text" dangerouslySetInnerHTML={{__html:post.Body}}>
             </div>
@@ -91,9 +95,9 @@ const Post = ({ post, carousel_data }) => {
               position: ${bodyPosition};
             }
           `}</style>
-          <Col sm="5" med="5" lg="5">
+          <Col sm="4" med="4" lg="4">
           </Col>
-          <ImageGallery post={post} windowWidth={windowWidth} setImagesHeight={setImagesHeight} />
+          <ImageGallery post={post} windowWidth={windowWidth} setImagesHeight={setImagesHeight} hero={hero} />
           <Col sm="12" md="12" lg="12" className="carousel-container">
             <PostCarousel post_type={(post.Type == 'Journal') ? 'photo journals' : 'itineraries'} posts={carousel_data} />
           </Col>
@@ -120,7 +124,8 @@ export async function getServerSideProps(context)  {
   return {
     props: {
       post: post_data[0],
-      carousel_data: carousel_data
+      carousel_data: carousel_data,
+      hero: post_data[0].Heroes.Landscape.formats.large.url
     }
   }
 }

@@ -23,7 +23,7 @@ const PostListing = ({ post, parent_destination, orientation }) => {
   }
   return (
     <Col className="post-listing" sm={widths.sm} md={widths.md} lg={widths.lg}>
-      <Link href={'post/' + post.Slug} as={`post/${post.Slug}`}>
+      <Link href={'/post/' + post.Slug} as={`/post/${post.Slug}`}>
         <a>
           <img src={hero} width="100%" />
         </a>
@@ -31,7 +31,7 @@ const PostListing = ({ post, parent_destination, orientation }) => {
       <p className="post-tag">
         {(post.Type == 'Journal') ? 'Photo Journal' : 'Itinerary'} // {parent_destination ? post.Destination?.Name + ', ' + parent_destination?.Name : post.Destination?.Name}
       </p>
-      <Link href={'post/' + post.Slug} as={`post/${post.Slug}`}>
+      <Link href={'/post/' + post.Slug} as={`/post/${post.Slug}`}>
         <a>
           <p className="post-title">{post.Title}</p>
         </a>
